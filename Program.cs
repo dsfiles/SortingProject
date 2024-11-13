@@ -7,7 +7,7 @@
             int[] arr = { 2, 1, 5, 4};
             Print(arr);
             int[] a = { 1, 3, 5, 7 };
-            int[] b = { 2, 4, 6, 8 };
+            int[] b = { 2, 4, 6, 8, 10, 20 };
             int[] c = new int[a.Length + b.Length];
             Merge(a, b, c);
             Console.WriteLine("after merging:");
@@ -42,11 +42,27 @@
             while( a is not empty){
                 read all the numbes from a into c
             }
+            */
+            while (i < a.Length)
+            {
+                c[k] = a[i];
+                i++;
+                k++;
+            }
 
+
+            /*
             while( b is not empty){
                 read all the numbes from b into c
             }
             */
+            while (j < b.Length)
+            {
+                c[k] = b[j];
+                j++;
+                k++;
+            }
+
         }
 
 
