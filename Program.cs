@@ -12,14 +12,14 @@
             //Console.WriteLine("after merging:");
             //Print(c);
 
-            int[] arr = { 2, 1, 5, 4, -10};
+            int[] arr = { 2, 1, 5, 40, -10};
             Print(arr);
             Sort.MergeSort(arr);
             Console.WriteLine("after arr is sorted using MergeSort:");
             Print(arr);
         }
 
-         static void Print(int[] arr)
+        public static void Print(int[] arr)
         {
             foreach (int i in arr)
             {

@@ -28,16 +28,38 @@ namespace SortingProject
                 {
                     a[i] = arr[i];
                 }
-
                 for (int i = a.Length; i < arr.Length; i++)
                 {
                     b[i-a.Length] = arr[i];
                 }
-
+                //Program.Print(a);
+                //Program.Print(b);
                 MergeSort(a);
                 MergeSort(b);
 
                 Merge(a, b, arr);
+            }
+        }
+        public static void Merge(int[] c, int left, int mid, int right)
+        {
+            int[] m = new int[right - left + 1];
+            int i = left, j = mid + 1, k = 0; // i for left half, j for right half, k for array m
+            while (i <= mid & j <= right)
+            {
+                if (c[i] < c[j])
+                    m[k++] = c[i++];
+                else
+                    m[k++] = c[j++];
+            }
+            while (i <= mid)
+                m[k++] = c[i++];
+
+            while (j <= right)
+                m[k++] = c[j++];
+
+            for (int l = 0; l < m.Length; l++)
+            {
+                c[left + l] = m[l];
             }
         }
         public static void Merge(int[] a, int[] b, int[] c)
