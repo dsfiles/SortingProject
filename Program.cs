@@ -4,14 +4,19 @@
     {
         static void Main(string[] args)
         {
-            int[] arr = { 2, 1, 5, 4};
+
+            //int[] a = { 1, 3, 5, 7 };
+            //int[] b = { 2, 4, 6, 8, 10, 20 };
+            //int[] c = new int[a.Length + b.Length];
+            //Sort.Merge(a, b, c);
+            //Console.WriteLine("after merging:");
+            //Print(c);
+
+            int[] arr = { 2, 1, 5, 4, -10};
             Print(arr);
-            int[] a = { 1, 3, 5, 7 };
-            int[] b = { 2, 4, 6, 8, 10, 20 };
-            int[] c = new int[a.Length + b.Length];
-            Sort.Merge(a, b, c);
-            Console.WriteLine("after merging:");
-            Print(c);
+            Sort.MergeSort(arr);
+            Console.WriteLine("after arr is sorted using MergeSort:");
+            Print(arr);
         }
 
          static void Print(int[] arr)
