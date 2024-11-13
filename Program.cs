@@ -12,14 +12,16 @@
             //Console.WriteLine("after merging:");
             //Print(c);
 
-            int[] arr = { 2, 1, 5, 40, -10};
+            int[] arr = { 2, 1, 5, 4, 0, -99};
+            //Print(arr);
+            //Sort.MergeSort(arr);
+            //Console.WriteLine("after arr is sorted using MergeSort:");
+            //Print(arr);
+            //int[] arr2 = { 2, 1, 5, 40, -10, 99, -100};
+            //Sort.MergeSort2(arr2);
+            //Print(arr2);
+            Sort.QuickSort(arr);
             Print(arr);
-            Sort.MergeSort(arr);
-            Console.WriteLine("after arr is sorted using MergeSort:");
-            Print(arr);
-            int[] arr2 = { 2, 1, 5, 40, -10, 99, -100};
-            Sort.MergeSort(0, arr2.Length - 1, arr2);
-            Print(arr2);
         }
 
         public static void Print(int[] arr)

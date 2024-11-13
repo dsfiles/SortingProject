@@ -8,6 +8,72 @@ namespace SortingProject
 {
     public class Sort
     {
+
+        public static void QuickSort(int[] arr)
+        {
+            if (arr.Length > 1) // continues to sort only if the array size is 2 or above
+            {
+                // Creates a temporary array to store rearranged numbers using the pivot
+                int[] temp = new int[arr.Length];
+
+                // Chooses the last number in arr as the pivot
+                int pivot = arr[arr.Length - 1];
+
+                int i = 0, l = 0, r = arr.Length - 1;
+
+                while (i < arr.Length)
+                {
+                    // Compares each number in arr to the pivot. If the number is greater or equal to the pivot,
+                    // place the number in array temp starting from the last position. The pivot will be placed
+                    // at the correct position.
+                    if (arr[i] >= pivot)
+                    {
+                        temp[r--] = arr[i++];
+                    }
+                    else
+                    // Places the numbers that are less than the pivot in the first positition and continues
+                    // untill the position just before the pivot.
+                    {
+                        temp[l++] = arr[i++];
+                    }
+                }
+                //Program.Print(temp);
+
+                // Array x = [ 5, 1, 2, 4, 6, 3 ], array temp: [ 1, 2, 3, 6, 4, 5]. Index l becomes the index of pivot
+                // after the while loop, l is also equal to the length of array with numbers that are less than the pivot
+
+                // Creates an array to store the numbers less than the pivot
+                int p = l; // p is the pivot position
+                int[] lower = new int[p];
+
+                // Creates an array to store the numbers greater than the pivot, and the pivot itself
+                int[] higher = new int[arr.Length - p - 1];
+
+                for (int j = 0; j < p; j++)
+                {
+                    lower[j] = temp[j];
+                }
+
+                for (int j = p + 1; j < arr.Length; j++)
+                {
+                    higher[j - p - 1] = temp[j];
+                }
+
+                QuickSort(lower); // Sorts array lower recursively
+                QuickSort(higher); // Sorts array higher recursively
+
+                // Combines arrays lower, pivot, and higher into the final sorted array
+                for (int j = 0; j < lower.Length; j++)
+                {
+                    arr[j] = lower[j];
+                }
+                for (int j = higher.Length - 1; j >= 0; j--)
+                {
+                    arr[arr.Length - higher.Length + j] = higher[j];
+                }
+                arr[p] = pivot; // Places the pivot back to the correct position in arr
+            }
+        }
         public static void MergeSort(int[] arr)
         {
             /*
@@ -39,6 +105,10 @@ namespace SortingProject
 
                 Merge(a, b, arr);
             }
+        }
+        public static void MergeSort2(int[] arr)
+        {
+            MergeSort(0, arr.Length-1, arr);
         }
         public static void MergeSort(int left, int right, int[] arr)
         {
