@@ -17,6 +17,9 @@
             Sort.MergeSort(arr);
             Console.WriteLine("after arr is sorted using MergeSort:");
             Print(arr);
+            int[] arr2 = { 2, 1, 5, 40, -10, 99, -100};
+            Sort.MergeSort(0, arr2.Length - 1, arr2);
+            Print(arr2);
         }
 
         public static void Print(int[] arr)

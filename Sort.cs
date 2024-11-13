@@ -40,12 +40,24 @@ namespace SortingProject
                 Merge(a, b, arr);
             }
         }
-        public static void Merge(int[] c, int left, int mid, int right)
+        public static void MergeSort(int left, int right, int[] arr)
+        {
+            if (left < right)
+            {
+                int mid = (left + right) / 2;
+
+                MergeSort(left, mid, arr);
+                MergeSort(mid + 1, right, arr);
+
+                Merge(left, mid, right, arr);
+            }
+
+        }
+        public static void Merge(int left, int mid, int right, int[] c)
         {
             int[] m = new int[right - left + 1];
             int i = left, j = mid + 1, k = 0; // i for left half, j for right half, k for array m
-            while (i <= mid & j <= right)
-            {
+            while (i <= mid & j <= right)  {
                 if (c[i] < c[j])
                     m[k++] = c[i++];
                 else
