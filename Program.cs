@@ -20,7 +20,7 @@
             //int[] arr2 = { 2, 1, 5, 40, -10, 99, -100};
             //Sort.MergeSort2(arr2);
             //Print(arr2);
-            Sort.QuickSort(arr);
+            Sort.QuickSort(arr, 0, arr.Length-1);
             Print(arr);
         }
 
