@@ -9,8 +9,53 @@ namespace SortingProject
     public class Sort
     {
 
-        // There is a bug, to be fixed soon!
         public static void QuickSort(int[] arr, int left, int right)
+        {
+            if (right > left) // continues to sort only if the array size is 2 or greater
+            {
+                // indexes l and r are used to iterate over the numbers from the left and right
+                // r starts from the second number to the last one, which is the pivot
+                // p is the index of pivot
+                int l = left, r = right - 1, p, temp;
+
+                // Chooses the last number in arr as the pivot
+                int pivot = arr[right];
+
+                while (l < r)
+                {
+                    // Advances l index untill the number is greater than the pivot
+                    while (l < right && arr[l] < pivot)
+                    {
+                        l++;
+                    }
+
+                    // Advances the l index untill the number is less than the pivot
+                    while (r >= left && arr[r] > pivot)
+                    {
+                        r--;
+                    }
+
+                    // Swapts the two numbers if indexes l and r have not crossed each other
+                        temp = arr[l];
+                        arr[l] = arr[r];
+                        arr[r] = temp;
+
+                    // When l and r meet, we stop. Note that we move the index l first
+                    // after swapping two numbers, so l and r will always stop at the 
+                    // element greater than the pivot.
+                }
+                arr[right] = arr[l];
+                arr[l] = pivot;
+                p = l; // Mark the index of pivot
+
+                QuickSort(arr, left, p - 1); // Sorts the left half of arr recursively
+                QuickSort(arr, p + 1, right); // Sorts the right half of arr recursively
+            }
+        }
+
+
+        // There is a bug, to be fixed soon! 11/14/24
+        public static void QuickSort2(int[] arr, int left, int right)
         {
             if (right > left) // continues to sort only if the array size is 2 or greater
             {
@@ -51,7 +96,7 @@ namespace SortingProject
                 QuickSort(arr, left + p + 1, right); // Sorts the right half of arr recursively
             }
         }
-        public static void QuickSort(int[] arr)
+        public static void QuickSort1(int[] arr)
         {
             if (arr.Length > 1) // continues to sort only if the array size is 2 or above
             {
@@ -98,8 +143,8 @@ namespace SortingProject
                 for (int j = p + 1; j < arr.Length; j++) {
                     higher[j - p - 1] = temp[j];
                 }
-                QuickSort(lower); // Sorts array lower recursively
-                QuickSort(higher); // Sorts array higher recursively
+                QuickSort1(lower); // Sorts array lower recursively
+                QuickSort1(higher); // Sorts array higher recursively
                 // Combines arrays lower, pivot, and higher into the final sorted array
                 for (int j = 0; j < lower.Length; j++) {
                     arr[j] = lower[j];
